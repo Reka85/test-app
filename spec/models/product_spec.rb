@@ -23,4 +23,11 @@ RSpec.describe Product, type: :model do
     product = Product.new(name: "adidas", user: user).save
     expect {user.destroy}.to change { Product.count }.by(-1)
   end
+
+  it 'should add new attribute to features' do
+    user = User.new(username: "Joe")
+    product = Product.new(name: "adidas", user: user)
+    product.features['size'] = 42
+    expect(product.features.length).to be(1)
+  end
 end
