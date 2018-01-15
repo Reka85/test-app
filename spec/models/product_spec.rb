@@ -1,5 +1,20 @@
 require 'rails_helper'
 
 RSpec.describe Product, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it 'ensures name presence' do
+    user = User.new(username: "Joe")
+    product = Product.new(name: '', user: user)
+    expect(product).to_not be_valid
+  end
+
+  it 'ensures user presence' do
+    product = Product.new(name: "adidas")
+    expect(product).to_not be_valid
+  end
+
+  it 'should save successfully' do
+    user = User.new(username: "Joe")
+    product = Product.new(name: "adidas", user: user).save
+    expect(product).to eq(true)
+  end
 end
