@@ -17,4 +17,10 @@ RSpec.describe Product, type: :model do
     product = Product.new(name: "adidas", user: user).save
     expect(product).to eq(true)
   end
+
+  it 'deleting user should delete product' do
+    user = User.new(username: "Joe")
+    product = Product.new(name: "adidas", user: user).save
+    expect {user.destroy}.to change { Product.count }.by(-1)
+  end
 end
