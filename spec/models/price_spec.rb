@@ -26,4 +26,11 @@ RSpec.describe Price, type: :model do
     price = Price.new(currency: "Eur", value: "54", product:product).save
     expect(price).to eq(true)
   end
+
+  it 'deleting user should delete price' do
+    user = User.new(username: "Joe")
+    product = Product.new(name: "adidas", user: user)
+    price = Price.new(currency: "Eur", value: "54", product:product).save
+    expect { user.destroy }.to change { Price.count }.by(-1)
+  end
 end
