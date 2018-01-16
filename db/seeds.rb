@@ -40,3 +40,4 @@ Product.all.each do |product|
 end
 
 p "Created prices"
+User.create!(username: "admin_user", email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
