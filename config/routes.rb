@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   end
 
   get "/", to: "product#index"
+  resources :products, only: [:new, :create, :edit, :update]
 
 end
