@@ -21,4 +21,5 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+INFO:
+api at /api/v1/users/:username (see example user in seed)
