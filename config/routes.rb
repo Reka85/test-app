@@ -8,4 +8,6 @@ Rails.application.routes.draw do
     end
   end
 
+  get "/", to: "product#index"
+
 end
